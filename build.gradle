@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.stats.gettingdressed.program.Program'
+        )
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'application'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+sourceSets {
+    main{
+        java{srcDirs=["src/main/java"]}
+    }
+    test{
+        java{srcDirs=["src/test/java"]}
+    }
+}
+
+mainClassName = 'com.stats.gettingdressed.program.Program'
+
+group 'com.stats.gettingdressed'
+version '1.0.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+run{
+    standardInput = System.in
+}
